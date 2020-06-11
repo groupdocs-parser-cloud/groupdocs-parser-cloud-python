@@ -45,21 +45,24 @@ class InfoResult(object):
     swagger_types = {
         'file_type': 'FileType',
         'size': 'int',
-        'page_count': 'int'
+        'page_count': 'int',
+        'encoding': 'str'
     }
 
     attribute_map = {
         'file_type': 'FileType',
         'size': 'Size',
-        'page_count': 'PageCount'
+        'page_count': 'PageCount',
+        'encoding': 'Encoding'
     }
 
-    def __init__(self, file_type=None, size=None, page_count=None, **kwargs):  # noqa: E501
+    def __init__(self, file_type=None, size=None, page_count=None, encoding=None, **kwargs):  # noqa: E501
         """Initializes new instance of InfoResult"""  # noqa: E501
 
         self._file_type = None
         self._size = None
         self._page_count = None
+        self._encoding = None
 
         if file_type is not None:
             self.file_type = file_type
@@ -67,6 +70,8 @@ class InfoResult(object):
             self.size = size
         if page_count is not None:
             self.page_count = page_count
+        if encoding is not None:
+            self.encoding = encoding
     
     @property
     def file_type(self):
@@ -143,6 +148,30 @@ class InfoResult(object):
         if page_count is None:
             raise ValueError("Invalid value for `page_count`, must not be `None`")  # noqa: E501
         self._page_count = page_count
+    
+    @property
+    def encoding(self):
+        """
+        Gets the encoding.  # noqa: E501
+
+        Gets or sets the encoding.  # noqa: E501
+
+        :return: The encoding.  # noqa: E501
+        :rtype: str
+        """
+        return self._encoding
+
+    @encoding.setter
+    def encoding(self, encoding):
+        """
+        Sets the encoding.
+
+        Gets or sets the encoding.  # noqa: E501
+
+        :param encoding: The encoding.  # noqa: E501
+        :type: str
+        """
+        self._encoding = encoding
 
     def to_dict(self):
         """Returns the model properties as a dict"""
