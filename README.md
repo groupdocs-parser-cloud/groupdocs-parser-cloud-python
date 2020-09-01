@@ -48,12 +48,4 @@ except groupdocs_parser_cloud.ApiException as e:
 ## Licensing
 GroupDocs.Parser Cloud Python SDK licensed under [MIT License](http://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-python/LICENSE).
 
-## Resources
-+ [**Website**](https://www.groupdocs.cloud)
-+ [**Product Home**](https://products.groupdocs.cloud/parser)
-+ [**Documentation**](https://docs.groupdocs.cloud/display/parsercloud/Home)
-+ [**Free Support Forum**](https://forum.groupdocs.cloud/c/parser)
-+ [**Blog**](https://blog.groupdocs.cloud/category/parser)
-
-## Contact Us
-Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/parser).
+[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/parser/python) | [Docs](https://docs.groupdocs.cloud/parser/) | [Demo](https://products.groupdocs.app/parser/family) | [API Reference](https://apireference.groupdocs.cloud/parser/) | [Examples](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-python-samples) | [Blog](https://blog.groupdocs.cloud/category/parser/) | [Free Support](https://forum.groupdocs.cloud/c/parser) | [Free Trial](https://purchase.groupdocs.cloud/trial)
