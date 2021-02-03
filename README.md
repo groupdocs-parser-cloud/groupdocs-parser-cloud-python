@@ -1,8 +1,9 @@
 ![](https://img.shields.io/badge/api-v1.0-lightgrey) ![PyPI](https://img.shields.io/pypi/v/groupdocs-parser-cloud) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/groupdocs-parser-cloud) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/groupdocs-parser-cloud) ![PyPI - Wheel](https://img.shields.io/pypi/wheel/groupdocs-parser-cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-parser-cloud/groupdocs-parser-cloud-python)](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-python/blob/master/LICENSE)
 
 # GroupDocs.Parser Cloud Python SDK
-Document Data Parsing REST APIs for Any Platform. Parse your documents with predefined templates, extract desired info - text fields, numbers, prices and tables. Extract text in various modes. Over 50 document formats are supported in any application, using our native document parsing APIs for cloud. GroupDocs.Parser Cloud Python package for communicating with the GroupDocs.Parser Cloud API.
+GroupDocs.Parser Cloud SDK for Python wraps GroupDocs.Parser RESTful APIs so you may integrate **Document Parser** features in your own apps with zero initial cost.
 
+GroupDocs.Parser Cloud API allows the developers to parse documents such as invoices, receipts or financial tables to extract text, images and metadata from 40+ popular document formats.
 
 ## Cloud Document Parser Features
 
@@ -90,26 +91,25 @@ python setup.py install
 Please follow the [installation procedure](#installation) and then run following:
 
 ```python
-# Import module
+# Load the gem
 import groupdocs_parser_cloud
 
-# Get your app_sid and app_key at https://dashboard.groupdocs.cloud (free registration is required).
-app_sid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-app_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+my_client_id = ""
+my_client_secret = ""
 
 # Create instance of the API
-api = groupdocs_parser_cloud.InfoApi.from_keys(app_sid, app_key)
+configuration = groupdocs_parser_cloud.Configuration(my_client_id, my_client_secret)
+api = groupdocs_parser_cloud.InfoApi.from_config(configuration)
 
-try:
-    # Retrieve supported file-formats
-    response = api.get_supported_file_formats()
+# Retrieve supported file-formats
+response = api.get_supported_file_formats()
 
-    # Print out supported file-formats
-    print("Supported file-formats:")
-    for format in response.formats:
-        print('{0} ({1})'.format(format.file_format, format.extension))
-except groupdocs_parser_cloud.ApiException as e:
-    print("Exception when calling get_supported_file_formats: {0}".format(e.message))
+# Print out supported file-formats
+print("Supported file-formats:")
+for format in response.formats:
+	print('{0} ({1})'.format(format.file_format, format.extension))
+
 ```
 
 ## Licensing
