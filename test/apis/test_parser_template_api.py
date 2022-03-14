@@ -30,6 +30,7 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
@@ -96,7 +97,7 @@ class TestParserTemplateApi(TestContext):
 
         with self.assertRaises(ApiException) as context:
             self.template_api.delete_template(delete_request)
-        self.assertEqual("Can't find file located at 'notExistTemplate.json'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'notExistTemplate.json'.", get_error_message(context.exception.message))
 
     def get_template(self):
         field1 = Field()

@@ -120,6 +120,27 @@ class TestFile:
         return f
 
     @classmethod
+    def rar(cls):
+        f = TestFile()
+        f.file_name = "sample.rar"
+        f.folder = "containers\\archive\\"
+        return f
+
+    @classmethod
+    def tar(cls):
+        f = TestFile()
+        f.file_name = "sample.tar"
+        f.folder = "containers\\archive\\"
+        return f
+
+    @classmethod
+    def md(cls):
+        f = TestFile()
+        f.file_name = "sample.md"
+        f.folder = "words\\docx\\"
+        return f
+
+    @classmethod
     def not_exist(cls):
         f = TestFile()
         f.file_name = "file-not-exist.pdf"
@@ -140,7 +161,10 @@ class TestFile:
             cls.jpeg_file(),
             cls.image_and_attachment(),
             cls.pdf(),
-            cls.pdf_container()
+            cls.pdf_container(),
+            cls.rar(),
+            cls.tar(),
+            cls.md()
         ]
 
     def ToFileInfo(self):

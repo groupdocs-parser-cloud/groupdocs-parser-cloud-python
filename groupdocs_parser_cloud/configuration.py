@@ -202,6 +202,6 @@ class Configuration(object):
         return "Python SDK Debug Report:\n"\
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
-               "Version of the API: 20.6\n"\
-               "SDK Package Version: 20.6".\
+               "Version of the API: 22.3\n"\
+               "SDK Package Version: 22.3".\
                format(env=sys.platform, pyversion=sys.version)

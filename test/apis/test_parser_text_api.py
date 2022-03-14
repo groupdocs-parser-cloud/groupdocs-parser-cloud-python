@@ -30,6 +30,7 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
@@ -96,7 +97,7 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
 
     def test_extract_text_incorrect_password(self):
         options = TextOptions()
@@ -105,7 +106,20 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", get_error_message(context.exception.message))
+
+    def test_extract_txt_md(self):
+            """
+            Test case for test_extract_txt_md
+
+            Extract text from document.
+            """
+            options = TextOptions()
+            options.file_info = TestFile.md().ToFileInfo()
+            request = TextRequest(options)
+            data = self.parse_api.text(request)
+            self.assertIsNotNone(data)
+            self.assertEqual("# Test\r\rText for test:\r\r\tOne\r\tTwo\r\tSub1\rSub2\r\tThree\r\rBullets:\r\rA\rAA\rB\rC\f", data.text)
 
 
 if __name__ == '__main__':

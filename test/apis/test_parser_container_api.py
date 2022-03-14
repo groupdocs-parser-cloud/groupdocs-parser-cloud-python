@@ -30,6 +30,7 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
@@ -56,7 +57,7 @@ class TestParserContainerApi(TestContext):
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
 
     def test_get_container_item_info_unsupported_file(self):
         container_options = ContainerOptions()
@@ -64,7 +65,35 @@ class TestParserContainerApi(TestContext):
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("The specified file 'words\\docx\\four-pages.docx' has type which is not currently supported.", context.exception.message)
+        self.assertEqual("The specified file 'words\\docx\\four-pages.docx' has type which is not currently supported.", get_error_message(context.exception.message))
+
+    def test_get_container_item_info_rar(self):
+            """
+            Test case for test_get_container_item_info_rar
+
+            Retrieve information about document.
+            """
+            container_options = ContainerOptions()
+            container_options.file_info = TestFile.rar().ToFileInfo()
+            request = ContainerRequest(container_options)
+            data = self.info_api.container(request)
+            self.assertIsNotNone(data)
+            self.assertEqual(2, len(data.container_items))
+            self.assertTrue(any(x.name == "sample.pdf" for x in data.container_items))
+
+    def test_get_container_item_info_tar(self):
+        """
+        Test case for test_get_container_item_info_tar
+
+        Retrieve information about document.
+        """
+        container_options = ContainerOptions()
+        container_options.file_info = TestFile.rar().ToFileInfo()
+        request = ContainerRequest(container_options)
+        data = self.info_api.container(request)
+        self.assertIsNotNone(data)
+        self.assertEqual(2, len(data.container_items))
+        self.assertTrue(any(x.name == "sample.pdf" for x in data.container_items))
 
 if __name__ == '__main__':
     unittest.main()

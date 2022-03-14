@@ -30,6 +30,7 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
@@ -67,7 +68,7 @@ class TestParserParseApi(TestContext):
         with self.assertRaises(ApiException) as context:
             self.parse_api.parse(request)
         self.assertEqual(
-            "Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+            "Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
 
     def test_parse_incorrect_password(self):
         parse_options = ParseOptions()
@@ -78,7 +79,7 @@ class TestParserParseApi(TestContext):
         with self.assertRaises(ApiException) as context:
             self.parse_api.parse(request)
         self.assertEqual(
-            "Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+            "Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", get_error_message(context.exception.message))
 
     def test_parse_not_supported_file(self):
         parse_options = ParseOptions()
@@ -88,7 +89,7 @@ class TestParserParseApi(TestContext):
         with self.assertRaises(ApiException) as context:
             self.parse_api.parse(request)
         self.assertEqual(
-            "The specified file 'image\\jpeg\\document.jpeg' has type which is not currently supported.", context.exception.message)
+            "The specified file 'image\\jpeg\\document.jpeg' has type which is not currently supported.", get_error_message(context.exception.message))
 
     def get_template(self):
         field1 = Field()

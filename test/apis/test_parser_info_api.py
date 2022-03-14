@@ -30,6 +30,7 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
@@ -71,7 +72,7 @@ class TestParserInfoApi(TestContext):
         request = GetInfoRequest(info_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.get_info(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
 
     def test_get_info_incorrect_password(self):
         info_options = InfoOptions()
@@ -80,7 +81,7 @@ class TestParserInfoApi(TestContext):
         request = GetInfoRequest(info_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.get_info(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", get_error_message(context.exception.message))
 
 
 if __name__ == '__main__':
