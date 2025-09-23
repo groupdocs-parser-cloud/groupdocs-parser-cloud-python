@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -97,7 +97,7 @@ class TestParserTemplateApi(TestContext):
 
         with self.assertRaises(ApiException) as context:
             self.template_api.delete_template(delete_request)
-        self.assertEqual("Can't find file located at 'notExistTemplate.json'.", get_error_message(context.exception.message))
+        self.assertEqual("Can't find file located at 'notExistTemplate.json'.", context.exception.message)
 
     def get_template(self):
         field1 = Field()

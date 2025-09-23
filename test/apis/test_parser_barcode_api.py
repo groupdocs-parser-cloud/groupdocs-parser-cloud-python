@@ -30,44 +30,28 @@ from __future__ import absolute_import
 import unittest
 
 from groupdocs_parser_cloud import *
+from groupdocs_parser_cloud.apis.parse_api import BarcodesRequest
+from groupdocs_parser_cloud.models.barcodes_options import BarcodesOptions
+from test.JsonUtils import get_error_message
 from test.test_context import TestContext
 from test.test_file import TestFile
 
-class TestFolderApi(TestContext):
-    """FolderApi unit tests"""
+class TestParserBarcodeApi(TestContext):
+    """ParseApi unit tests"""
 
-    def test_get_list_files(self):
-        request = GetFilesListRequest("words")
-        data = self.folder_api.get_files_list(request)
-        self.assertGreater(len(data.value), 0)
+    def test_get_barcode_docx(self):
+        """
+        Test case for test_get_barcode_docx
 
-    def test_copy_move_folder(self):
-        # Create temp folder
-        request = CreateFolderRequest("temp")
-        self.folder_api.create_folder(request)        
-        # Copy folder
-        request = CopyFolderRequest("temp", "temp1")
-        self.folder_api.copy_folder(request)   
-        # Check copied folder
-        request = ObjectExistsRequest("temp1")        
-        data = self.storage_api.object_exists(request)
-        self.assertTrue(data.exists)
-        self.assertTrue(data.is_folder)
-        # Move folder
-        request = MoveFolderRequest("temp1", "temp2")
-        self.folder_api.move_folder(request)   
-        # Check moved folder
-        request = ObjectExistsRequest("temp1")        
-        data = self.storage_api.object_exists(request)
-        self.assertFalse(data.exists)
-        request = ObjectExistsRequest("temp2")        
-        data = self.storage_api.object_exists(request)
-        self.assertTrue(data.exists)   
-        # Delete temp folders  
-        request = DeleteFolderRequest("temp", None, True)
-        self.folder_api.delete_folder(request)
-        request = DeleteFolderRequest("temp2", None, True)
-        self.folder_api.delete_folder(request)        
+        Extract barcodes from documents.
+        """
+        barcode_options = BarcodesOptions()
+        barcode_options.file_info = TestFile.barcode().ToFileInfo()
+        request = BarcodesRequest(barcode_options)     
+        data = self.parse_api.barcodes(request)
+        self.assertIsNotNone(data)
+        for barcode in data.barcodes:
+            self.assertIsNotNone(barcode.value)
 
 if __name__ == '__main__':
     unittest.main()

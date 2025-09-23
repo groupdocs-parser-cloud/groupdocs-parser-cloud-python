@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="PageArea.py">
+# <copyright company="Aspose Pty Ltd" file="Barcode.py">
 #   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,9 +30,9 @@ import re  # noqa: F401
 
 import six
 
-class PageArea(object):
+class Barcode(object):
     """
-    Class for document page area.
+    Represents an barcode.
     """
 
     """
@@ -43,42 +43,95 @@ class PageArea(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'code_type_name': 'str',
+        'page': 'BarcodePage',
         'rectangle': 'Rectangle',
-        'page': 'Page',
-        'page_text_area': 'PageTextArea',
-        'page_table_area': 'PageTableArea'
+        'value': 'str',
+        'download_url': 'str'
     }
 
     attribute_map = {
-        'rectangle': 'Rectangle',
+        'code_type_name': 'CodeTypeName',
         'page': 'Page',
-        'page_text_area': 'PageTextArea',
-        'page_table_area': 'PageTableArea'
+        'rectangle': 'Rectangle',
+        'value': 'Value',
+        'download_url': 'DownloadUrl'
     }
 
-    def __init__(self, rectangle=None, page=None, page_text_area=None, page_table_area=None, **kwargs):  # noqa: E501
-        """Initializes new instance of PageArea"""  # noqa: E501
+    def __init__(self, code_type_name=None, page=None, rectangle=None, value=None, download_url=None, **kwargs):  # noqa: E501
+        """Initializes new instance of Barcode"""  # noqa: E501
 
-        self._rectangle = None
+        self._code_type_name = None
         self._page = None
-        self._page_text_area = None
-        self._page_table_area = None
+        self._rectangle = None
+        self._value = None
+        self._download_url = None
 
-        if rectangle is not None:
-            self.rectangle = rectangle
+        if code_type_name is not None:
+            self.code_type_name = code_type_name
         if page is not None:
             self.page = page
-        if page_text_area is not None:
-            self.page_text_area = page_text_area
-        if page_table_area is not None:
-            self.page_table_area = page_table_area
+        if rectangle is not None:
+            self.rectangle = rectangle
+        if value is not None:
+            self.value = value
+        if download_url is not None:
+            self.download_url = download_url
+    
+    @property
+    def code_type_name(self):
+        """
+        Gets the code_type_name.  # noqa: E501
+
+        Gets the name of the barcode type.  # noqa: E501
+
+        :return: The code_type_name.  # noqa: E501
+        :rtype: str
+        """
+        return self._code_type_name
+
+    @code_type_name.setter
+    def code_type_name(self, code_type_name):
+        """
+        Sets the code_type_name.
+
+        Gets the name of the barcode type.  # noqa: E501
+
+        :param code_type_name: The code_type_name.  # noqa: E501
+        :type: str
+        """
+        self._code_type_name = code_type_name
+    
+    @property
+    def page(self):
+        """
+        Gets the page.  # noqa: E501
+
+        Gets the document page information such as page index and page size.  # noqa: E501
+
+        :return: The page.  # noqa: E501
+        :rtype: BarcodePage
+        """
+        return self._page
+
+    @page.setter
+    def page(self, page):
+        """
+        Sets the page.
+
+        Gets the document page information such as page index and page size.  # noqa: E501
+
+        :param page: The page.  # noqa: E501
+        :type: BarcodePage
+        """
+        self._page = page
     
     @property
     def rectangle(self):
         """
         Gets the rectangle.  # noqa: E501
 
-        Gets or sets the rectangular area.  # noqa: E501
+        Gets the rectangular area.  # noqa: E501
 
         :return: The rectangle.  # noqa: E501
         :rtype: Rectangle
@@ -90,7 +143,7 @@ class PageArea(object):
         """
         Sets the rectangle.
 
-        Gets or sets the rectangular area.  # noqa: E501
+        Gets the rectangular area.  # noqa: E501
 
         :param rectangle: The rectangle.  # noqa: E501
         :type: Rectangle
@@ -98,76 +151,52 @@ class PageArea(object):
         self._rectangle = rectangle
     
     @property
-    def page(self):
+    def value(self):
         """
-        Gets the page.  # noqa: E501
+        Gets the value.  # noqa: E501
 
-        Gets or sets the document page information such as page index and page size.  # noqa: E501
+        Gets the barcode value.  # noqa: E501
 
-        :return: The page.  # noqa: E501
-        :rtype: Page
+        :return: The value.  # noqa: E501
+        :rtype: str
         """
-        return self._page
+        return self._value
 
-    @page.setter
-    def page(self, page):
+    @value.setter
+    def value(self, value):
         """
-        Sets the page.
+        Sets the value.
 
-        Gets or sets the document page information such as page index and page size.  # noqa: E501
+        Gets the barcode value.  # noqa: E501
 
-        :param page: The page.  # noqa: E501
-        :type: Page
+        :param value: The value.  # noqa: E501
+        :type: str
         """
-        self._page = page
+        self._value = value
     
     @property
-    def page_text_area(self):
+    def download_url(self):
         """
-        Gets the page_text_area.  # noqa: E501
+        Gets the download_url.  # noqa: E501
 
-        Gets or sets the text area. Represents a page text area which is used to represent a text value in the parsing by template functionality.  # noqa: E501
+        Gets or sets the barcode download URL.  # noqa: E501
 
-        :return: The page_text_area.  # noqa: E501
-        :rtype: PageTextArea
+        :return: The download_url.  # noqa: E501
+        :rtype: str
         """
-        return self._page_text_area
+        return self._download_url
 
-    @page_text_area.setter
-    def page_text_area(self, page_text_area):
+    @download_url.setter
+    def download_url(self, download_url):
         """
-        Sets the page_text_area.
+        Sets the download_url.
 
-        Gets or sets the text area. Represents a page text area which is used to represent a text value in the parsing by template functionality.  # noqa: E501
+        Gets or sets the barcode download URL.  # noqa: E501
 
-        :param page_text_area: The page_text_area.  # noqa: E501
-        :type: PageTextArea
+        :param download_url: The download_url.  # noqa: E501
+        :type: str
         """
-        self._page_text_area = page_text_area
-    
-    @property
-    def page_table_area(self):
-        """
-        Gets the page_table_area.  # noqa: E501
-
-        Gets or sets the table area. Represents a table page area which is used to represent a table in the parsing by template functionality.  # noqa: E501
-
-        :return: The page_table_area.  # noqa: E501
-        :rtype: PageTableArea
-        """
-        return self._page_table_area
-
-    @page_table_area.setter
-    def page_table_area(self, page_table_area):
-        """
-        Sets the page_table_area.
-
-        Gets or sets the table area. Represents a table page area which is used to represent a table in the parsing by template functionality.  # noqa: E501
-
-        :param page_table_area: The page_table_area.  # noqa: E501
-        :type: PageTableArea
-        """
-        self._page_table_area = page_table_area
+        self._download_url = download_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -203,7 +232,7 @@ class PageArea(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, PageArea):
+        if not isinstance(other, Barcode):
             return False
 
         return self.__dict__ == other.__dict__

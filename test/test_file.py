@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="test_file.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,6 +45,13 @@ class TestFile:
     def four_pages(cls):
         f = TestFile()
         f.file_name = "four-pages.docx"
+        f.folder = "words\\docx\\"
+        return f
+    
+    @classmethod
+    def barcode(cls):
+        f = TestFile()
+        f.file_name = "barcodes.docx"
         f.folder = "words\\docx\\"
         return f
 
@@ -138,6 +145,13 @@ class TestFile:
         f = TestFile()
         f.file_name = "sample.md"
         f.folder = "words\\docx\\"
+        return f
+
+    @classmethod
+    def video(cls):
+        f = TestFile()
+        f.file_name = "sample.avi"
+        f.folder = "video\\avi\\"
         return f
 
     @classmethod

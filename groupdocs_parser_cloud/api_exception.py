@@ -1,7 +1,7 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="api_exception.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,10 +25,8 @@
 # -----------------------------------------------------------------------------------
 
 from __future__ import absolute_import
-from past.builtins import (unicode)
-import json
-import sys
 
+import json
 
 class ApiException(Exception):
     """
@@ -41,21 +39,18 @@ class ApiException(Exception):
 
             try:
                 data = json.loads(http_resp.data)
-
+                
                 error = data.get("error")
-                error_api = data.get("Error")
-
+                
                 if error is not None:
-                    if isinstance(error, (str, unicode)):
-                        self.message = error
-                    else:
-                        self.message = error.get("message") if error.get(
-                            "message") is not None else http_resp.data
-                elif error_api is not None:
-                    self.message = error_api.get("Message") if error_api.get(
-                        "Message") is not None else http_resp.data
+                    self.message = error if type(error) is str else error.get("message")                 
                 else:
-                    self.message = http_resp.data
+                    message = data.get("message")
+                    if message is not None:
+                        self.message = message
+                        self.code = data.get("code")
+                    else:
+                        self.message = http_resp.data   
             except ValueError:
                 self.message = http_resp.data
         else:

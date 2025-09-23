@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,15 +57,15 @@ class TestParserContainerApi(TestContext):
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
+        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
 
     def test_get_container_item_info_unsupported_file(self):
         container_options = ContainerOptions()
-        container_options.file_info = TestFile.four_pages().ToFileInfo()
+        container_options.file_info = TestFile.video().ToFileInfo()
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("The specified file 'words\\docx\\four-pages.docx' has type which is not currently supported.", get_error_message(context.exception.message))
+        self.assertEqual("The specified file 'video\\avi\\sample.avi' has type which is not currently supported.", context.exception.message)
 
     def test_get_container_item_info_rar(self):
             """

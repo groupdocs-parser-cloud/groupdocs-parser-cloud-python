@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="Rectangle.py">
+# <copyright company="Aspose Pty Ltd" file="BarcodesOptions.py">
 #   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,9 +30,11 @@ import re  # noqa: F401
 
 import six
 
-class Rectangle(object):
+from groupdocs_parser_cloud.models import ParserOptions
+
+class BarcodesOptions(ParserOptions):
     """
-    Rectangular area on the page.
+    Barcode options.
     """
 
     """
@@ -43,102 +45,108 @@ class Rectangle(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'position': 'Point',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'output_path': 'str',
+        'start_page_number': 'int',
+        'count_pages_to_extract': 'int'
     }
 
     attribute_map = {
-        'position': 'Position',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'output_path': 'OutputPath',
+        'start_page_number': 'StartPageNumber',
+        'count_pages_to_extract': 'CountPagesToExtract'
     }
 
-    def __init__(self, position=None, size=None, coordinates=None, **kwargs):  # noqa: E501
-        """Initializes new instance of Rectangle"""  # noqa: E501
+    def __init__(self, output_path=None, start_page_number=None, count_pages_to_extract=None, **kwargs):  # noqa: E501
+        """Initializes new instance of BarcodesOptions"""  # noqa: E501
 
-        self._position = None
-        self._size = None
-        self._coordinates = None
+        self._output_path = None
+        self._start_page_number = None
+        self._count_pages_to_extract = None
 
-        if position is not None:
-            self.position = position
-        if size is not None:
-            self.size = size
-        if coordinates is not None:
-            self.coordinates = coordinates
+        if output_path is not None:
+            self.output_path = output_path
+        if start_page_number is not None:
+            self.start_page_number = start_page_number
+        if count_pages_to_extract is not None:
+            self.count_pages_to_extract = count_pages_to_extract
+
+        base = super(BarcodesOptions, self)
+        base.__init__(**kwargs)
+
+        self.swagger_types.update(base.swagger_types)
+        self.attribute_map.update(base.attribute_map)
     
     @property
-    def position(self):
+    def output_path(self):
         """
-        Gets the position.  # noqa: E501
+        Gets the output_path.  # noqa: E501
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets or sets the output path for extracted barcodes.  # noqa: E501
 
-        :return: The position.  # noqa: E501
-        :rtype: Point
+        :return: The output_path.  # noqa: E501
+        :rtype: str
         """
-        return self._position
+        return self._output_path
 
-    @position.setter
-    def position(self, position):
+    @output_path.setter
+    def output_path(self, output_path):
         """
-        Sets the position.
+        Sets the output_path.
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets or sets the output path for extracted barcodes.  # noqa: E501
 
-        :param position: The position.  # noqa: E501
-        :type: Point
+        :param output_path: The output_path.  # noqa: E501
+        :type: str
         """
-        self._position = position
+        self._output_path = output_path
     
     @property
-    def size(self):
+    def start_page_number(self):
         """
-        Gets the size.  # noqa: E501
+        Gets the start_page_number.  # noqa: E501
 
-        Gets or sets the size of the rectangle.  # noqa: E501
+        Gets or sets the zero-based start page index.  # noqa: E501
 
-        :return: The size.  # noqa: E501
-        :rtype: Size
+        :return: The start_page_number.  # noqa: E501
+        :rtype: int
         """
-        return self._size
+        return self._start_page_number
 
-    @size.setter
-    def size(self, size):
+    @start_page_number.setter
+    def start_page_number(self, start_page_number):
         """
-        Sets the size.
+        Sets the start_page_number.
 
-        Gets or sets the size of the rectangle.  # noqa: E501
+        Gets or sets the zero-based start page index.  # noqa: E501
 
-        :param size: The size.  # noqa: E501
-        :type: Size
+        :param start_page_number: The start_page_number.  # noqa: E501
+        :type: int
         """
-        self._size = size
+        self._start_page_number = start_page_number
     
     @property
-    def coordinates(self):
+    def count_pages_to_extract(self):
         """
-        Gets the coordinates.  # noqa: E501
+        Gets the count_pages_to_extract.  # noqa: E501
 
-        Gets or sets the coordinates.  # noqa: E501
+        Gets or sets the number of pages to extract.  # noqa: E501
 
-        :return: The coordinates.  # noqa: E501
-        :rtype: Coordinates
+        :return: The count_pages_to_extract.  # noqa: E501
+        :rtype: int
         """
-        return self._coordinates
+        return self._count_pages_to_extract
 
-    @coordinates.setter
-    def coordinates(self, coordinates):
+    @count_pages_to_extract.setter
+    def count_pages_to_extract(self, count_pages_to_extract):
         """
-        Sets the coordinates.
+        Sets the count_pages_to_extract.
 
-        Gets or sets the coordinates.  # noqa: E501
+        Gets or sets the number of pages to extract.  # noqa: E501
 
-        :param coordinates: The coordinates.  # noqa: E501
-        :type: Coordinates
+        :param count_pages_to_extract: The count_pages_to_extract.  # noqa: E501
+        :type: int
         """
-        self._coordinates = coordinates
+        self._count_pages_to_extract = count_pages_to_extract
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -174,7 +182,7 @@ class Rectangle(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, Rectangle):
+        if not isinstance(other, BarcodesOptions):
             return False
 
         return self.__dict__ == other.__dict__

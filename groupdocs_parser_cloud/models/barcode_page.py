@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="Rectangle.py">
+# <copyright company="Aspose Pty Ltd" file="BarcodePage.py">
 #   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,9 +30,9 @@ import re  # noqa: F401
 
 import six
 
-class Rectangle(object):
+class BarcodePage(object):
     """
-    Rectangular area on the page.
+    
     """
 
     """
@@ -43,61 +43,58 @@ class Rectangle(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'position': 'Point',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'index': 'int',
+        'size': 'Size'
     }
 
     attribute_map = {
-        'position': 'Position',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'index': 'Index',
+        'size': 'Size'
     }
 
-    def __init__(self, position=None, size=None, coordinates=None, **kwargs):  # noqa: E501
-        """Initializes new instance of Rectangle"""  # noqa: E501
+    def __init__(self, index=None, size=None, **kwargs):  # noqa: E501
+        """Initializes new instance of BarcodePage"""  # noqa: E501
 
-        self._position = None
+        self._index = None
         self._size = None
-        self._coordinates = None
 
-        if position is not None:
-            self.position = position
+        if index is not None:
+            self.index = index
         if size is not None:
             self.size = size
-        if coordinates is not None:
-            self.coordinates = coordinates
     
     @property
-    def position(self):
+    def index(self):
         """
-        Gets the position.  # noqa: E501
+        Gets the index.  # noqa: E501
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets the page index.  # noqa: E501
 
-        :return: The position.  # noqa: E501
-        :rtype: Point
+        :return: The index.  # noqa: E501
+        :rtype: int
         """
-        return self._position
+        return self._index
 
-    @position.setter
-    def position(self, position):
+    @index.setter
+    def index(self, index):
         """
-        Sets the position.
+        Sets the index.
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets the page index.  # noqa: E501
 
-        :param position: The position.  # noqa: E501
-        :type: Point
+        :param index: The index.  # noqa: E501
+        :type: int
         """
-        self._position = position
+        if index is None:
+            raise ValueError("Invalid value for `index`, must not be `None`")  # noqa: E501
+        self._index = index
     
     @property
     def size(self):
         """
         Gets the size.  # noqa: E501
 
-        Gets or sets the size of the rectangle.  # noqa: E501
+        Gets the page size.  # noqa: E501
 
         :return: The size.  # noqa: E501
         :rtype: Size
@@ -109,36 +106,12 @@ class Rectangle(object):
         """
         Sets the size.
 
-        Gets or sets the size of the rectangle.  # noqa: E501
+        Gets the page size.  # noqa: E501
 
         :param size: The size.  # noqa: E501
         :type: Size
         """
         self._size = size
-    
-    @property
-    def coordinates(self):
-        """
-        Gets the coordinates.  # noqa: E501
-
-        Gets or sets the coordinates.  # noqa: E501
-
-        :return: The coordinates.  # noqa: E501
-        :rtype: Coordinates
-        """
-        return self._coordinates
-
-    @coordinates.setter
-    def coordinates(self, coordinates):
-        """
-        Sets the coordinates.
-
-        Gets or sets the coordinates.  # noqa: E501
-
-        :param coordinates: The coordinates.  # noqa: E501
-        :type: Coordinates
-        """
-        self._coordinates = coordinates
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -174,7 +147,7 @@ class Rectangle(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, Rectangle):
+        if not isinstance(other, BarcodePage):
             return False
 
         return self.__dict__ == other.__dict__

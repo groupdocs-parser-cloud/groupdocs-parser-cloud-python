@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -66,9 +66,9 @@ class TestParserTextApi(TestContext):
         data = self.parse_api.text(request)
         self.assertIsNotNone(data)
         self.assertEqual(0, data.pages[0].page_index)
-        self.assertEqual("Text inside bookmark 0\r\n\r\nPage 0 heading\r\n\r\nPage Text - Page 0\r\n\r\n\fText inside bookmark 1\r\n\r\n", data.pages[0].text)
+        self.assertEqual("Text inside bookmark 0\n\nPage 0 heading\n\nPage Text - Page 0\n\n\fText inside bookmark 1\n\n", data.pages[0].text)
         self.assertEqual(3, data.pages[3].page_index)
-        self.assertEqual("\fText inside bookmark 3\r\n\r\nPage 3 heading\r\n\r\nPage Text - Page 3\r\n\r\n", data.pages[3].text)
+        self.assertEqual("\fText inside bookmark 3\n\nPage 3 heading\n\nPage Text - Page 3\n\n", data.pages[3].text)
     
     def test_extract_formatted(self):
         """
@@ -97,7 +97,7 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", get_error_message(context.exception.message))
+        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
 
     def test_extract_text_incorrect_password(self):
         options = TextOptions()
@@ -106,7 +106,7 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", get_error_message(context.exception.message))
+        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
 
     def test_extract_txt_md(self):
             """

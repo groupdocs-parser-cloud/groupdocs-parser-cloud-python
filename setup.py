@@ -6,7 +6,7 @@ import datetime
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "groupdocs-parser-cloud"
-VERSION = "22.3"
+VERSION = "25.9"
 
 # Append current time to the version when publishing to test environment
 if "--test" in sys.argv:
@@ -20,7 +20,7 @@ if "--test" in sys.argv:
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil", "future >= 0.17.1"]
+REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 TEST_REQUIRES = ["asposestoragecloud >= 1.0.5"]
 
 with open("README.md", "r") as fh:

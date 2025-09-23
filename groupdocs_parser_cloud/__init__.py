@@ -27,6 +27,9 @@ from groupdocs_parser_cloud.api_client import ApiClient
 from groupdocs_parser_cloud.configuration import Configuration
 
 # import models
+from groupdocs_parser_cloud.models.barcode import Barcode
+from groupdocs_parser_cloud.models.barcode_page import BarcodePage
+from groupdocs_parser_cloud.models.barcodes_result import BarcodesResult
 from groupdocs_parser_cloud.models.container_item import ContainerItem
 from groupdocs_parser_cloud.models.container_item_info import ContainerItemInfo
 from groupdocs_parser_cloud.models.container_result import ContainerResult
@@ -72,6 +75,7 @@ from groupdocs_parser_cloud.models.template_result import TemplateResult
 from groupdocs_parser_cloud.models.text_page import TextPage
 from groupdocs_parser_cloud.models.text_result import TextResult
 from groupdocs_parser_cloud.models.text_style import TextStyle
+from groupdocs_parser_cloud.models.barcodes_options import BarcodesOptions
 from groupdocs_parser_cloud.models.container_options import ContainerOptions
 from groupdocs_parser_cloud.models.file_version import FileVersion
 from groupdocs_parser_cloud.models.images_options import ImagesOptions

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="Rectangle.py">
+# <copyright company="Aspose Pty Ltd" file="BarcodesResult.py">
 #   Copyright (c) Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,9 +30,9 @@ import re  # noqa: F401
 
 import six
 
-class Rectangle(object):
+class BarcodesResult(object):
     """
-    Rectangular area on the page.
+    
     """
 
     """
@@ -43,102 +43,44 @@ class Rectangle(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'position': 'Point',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'barcodes': 'list[Barcode]'
     }
 
     attribute_map = {
-        'position': 'Position',
-        'size': 'Size',
-        'coordinates': 'Coordinates'
+        'barcodes': 'Barcodes'
     }
 
-    def __init__(self, position=None, size=None, coordinates=None, **kwargs):  # noqa: E501
-        """Initializes new instance of Rectangle"""  # noqa: E501
+    def __init__(self, barcodes=None, **kwargs):  # noqa: E501
+        """Initializes new instance of BarcodesResult"""  # noqa: E501
 
-        self._position = None
-        self._size = None
-        self._coordinates = None
+        self._barcodes = None
 
-        if position is not None:
-            self.position = position
-        if size is not None:
-            self.size = size
-        if coordinates is not None:
-            self.coordinates = coordinates
+        if barcodes is not None:
+            self.barcodes = barcodes
     
     @property
-    def position(self):
+    def barcodes(self):
         """
-        Gets the position.  # noqa: E501
+        Gets the barcodes.  # noqa: E501
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets or sets a collection of barcodes.  # noqa: E501
 
-        :return: The position.  # noqa: E501
-        :rtype: Point
+        :return: The barcodes.  # noqa: E501
+        :rtype: list[Barcode]
         """
-        return self._position
+        return self._barcodes
 
-    @position.setter
-    def position(self, position):
+    @barcodes.setter
+    def barcodes(self, barcodes):
         """
-        Sets the position.
+        Sets the barcodes.
 
-        Gets the coordinates of the upper-left corner of the rectangular area.  # noqa: E501
+        Gets or sets a collection of barcodes.  # noqa: E501
 
-        :param position: The position.  # noqa: E501
-        :type: Point
+        :param barcodes: The barcodes.  # noqa: E501
+        :type: list[Barcode]
         """
-        self._position = position
-    
-    @property
-    def size(self):
-        """
-        Gets the size.  # noqa: E501
-
-        Gets or sets the size of the rectangle.  # noqa: E501
-
-        :return: The size.  # noqa: E501
-        :rtype: Size
-        """
-        return self._size
-
-    @size.setter
-    def size(self, size):
-        """
-        Sets the size.
-
-        Gets or sets the size of the rectangle.  # noqa: E501
-
-        :param size: The size.  # noqa: E501
-        :type: Size
-        """
-        self._size = size
-    
-    @property
-    def coordinates(self):
-        """
-        Gets the coordinates.  # noqa: E501
-
-        Gets or sets the coordinates.  # noqa: E501
-
-        :return: The coordinates.  # noqa: E501
-        :rtype: Coordinates
-        """
-        return self._coordinates
-
-    @coordinates.setter
-    def coordinates(self, coordinates):
-        """
-        Sets the coordinates.
-
-        Gets or sets the coordinates.  # noqa: E501
-
-        :param coordinates: The coordinates.  # noqa: E501
-        :type: Coordinates
-        """
-        self._coordinates = coordinates
+        self._barcodes = barcodes
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -174,7 +116,7 @@ class Rectangle(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, Rectangle):
+        if not isinstance(other, BarcodesResult):
             return False
 
         return self.__dict__ == other.__dict__
