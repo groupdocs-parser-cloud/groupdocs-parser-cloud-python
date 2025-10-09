@@ -16,7 +16,7 @@ from groupdocs_parser_cloud.apis.template_api import TemplateApi
 from groupdocs_parser_cloud.apis.file_api import CopyFileRequest, DeleteFileRequest, DownloadFileRequest, MoveFileRequest, UploadFileRequest
 from groupdocs_parser_cloud.apis.storage_api import GetDiscUsageRequest, GetFileVersionsRequest, ObjectExistsRequest, StorageExistsRequest
 from groupdocs_parser_cloud.apis.folder_api import CopyFolderRequest, CreateFolderRequest, DeleteFolderRequest, GetFilesListRequest, MoveFolderRequest
-from groupdocs_parser_cloud.apis.parse_api import ImagesRequest, TextRequest, ParseRequest
+from groupdocs_parser_cloud.apis.parse_api import ImagesRequest, TextRequest, ParseRequest, BarcodesRequest
 from groupdocs_parser_cloud.apis.info_api import GetInfoRequest, ContainerRequest
 from groupdocs_parser_cloud.apis.template_api import CreateTemplateRequest, DeleteTemplateRequest, GetTemplateRequest
 
