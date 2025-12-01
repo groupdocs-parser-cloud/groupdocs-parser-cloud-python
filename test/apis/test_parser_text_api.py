@@ -97,7 +97,7 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder/file-not-exist.pdf'.", context.exception.message)
 
     def test_extract_text_incorrect_password(self):
         options = TextOptions()
@@ -106,7 +106,7 @@ class TestParserTextApi(TestContext):
         request = TextRequest(options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.text(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+        self.assertEqual("Password provided for file 'words/docx/password-protected.docx' is incorrect.", context.exception.message)
 
     def test_extract_txt_md(self):
             """

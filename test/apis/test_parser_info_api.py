@@ -72,7 +72,7 @@ class TestParserInfoApi(TestContext):
         request = GetInfoRequest(info_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.get_info(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder/file-not-exist.pdf'.", context.exception.message)
 
     def test_get_info_incorrect_password(self):
         info_options = InfoOptions()
@@ -81,7 +81,7 @@ class TestParserInfoApi(TestContext):
         request = GetInfoRequest(info_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.get_info(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+        self.assertEqual("Password provided for file 'words/docx/password-protected.docx' is incorrect.", context.exception.message)
 
 
 if __name__ == '__main__':

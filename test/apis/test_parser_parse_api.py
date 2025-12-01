@@ -68,7 +68,7 @@ class TestParserParseApi(TestContext):
         with self.assertRaises(ApiException) as context:
             self.parse_api.parse(request)
         self.assertEqual(
-            "Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+            "Can't find file located at 'folder/file-not-exist.pdf'.", context.exception.message)
 
     def test_parse_incorrect_password(self):
         parse_options = ParseOptions()
@@ -79,7 +79,7 @@ class TestParserParseApi(TestContext):
         with self.assertRaises(ApiException) as context:
             self.parse_api.parse(request)
         self.assertEqual(
-            "Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+            "Password provided for file 'words/docx/password-protected.docx' is incorrect.", context.exception.message)
 
     def test_parse_not_supported_file(self):
         parse_options = ParseOptions()

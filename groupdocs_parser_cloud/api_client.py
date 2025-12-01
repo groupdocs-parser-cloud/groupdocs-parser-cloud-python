@@ -74,12 +74,12 @@ class ApiClient(object):
         self.configuration = configuration
         self.pool = None
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {'x-groupdocs-client': 'python sdk', 'x-groupdocs-version': '25.9'}
+        self.default_headers = {'x-groupdocs-client': 'python sdk', 'x-groupdocs-version': '25.11'}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'python sdk 25.9'
+        self.user_agent = 'python sdk 25.11'
 
     def __del__(self):
         if self.pool is not None:
@@ -455,13 +455,26 @@ class ApiClient(object):
                     continue
                 file_names = v if type(v) is list else [v]
                 for n in file_names:
-                    with open(n, 'rb') as f:
-                        filename = os.path.basename(f.name)
-                        filedata = f.read()
+                    # Check if it's a file-like object (stream) or a file path
+                    if hasattr(n, 'read'):
+                        # It's a file stream/file-like object
+                        filename = getattr(n, 'name', 'uploaded_file')
+                        if isinstance(filename, str):
+                            filename = os.path.basename(filename)
+                        filedata = n.read()
                         mimetype = (mimetypes.guess_type(filename)[0] or
                                     'application/octet-stream')
                         params.append(
                             tuple([k, tuple([filename, filedata, mimetype])]))
+                    else:
+                        # It's a file path (string)                    
+                        with open(n, 'rb') as f:
+                            filename = os.path.basename(f.name)
+                            filedata = f.read()
+                            mimetype = (mimetypes.guess_type(filename)[0] or
+                                        'application/octet-stream')
+                            params.append(
+                                tuple([k, tuple([filename, filedata, mimetype])]))
 
         return params
 

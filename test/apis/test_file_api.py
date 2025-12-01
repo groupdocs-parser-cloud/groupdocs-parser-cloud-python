@@ -83,5 +83,12 @@ class TestFileApi(TestContext):
         request = DeleteFolderRequest("temp", None, True)
         self.folder_api.delete_folder(request)        
 
+    def test_upload_file(self):
+        test_file = TestFile.one_page()
+        local_file_path = self.get_test_file_path(test_file)
+        with open(local_file_path, 'rb') as stream:
+            request = UploadFileRequest("upstream/" + test_file.file_name, stream)
+            self.file_api.upload_file(request)
+
 if __name__ == '__main__':
     unittest.main()

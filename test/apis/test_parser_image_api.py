@@ -109,7 +109,7 @@ class TestParserImageApi(TestContext):
         request = ImagesRequest(image_options)     
         with self.assertRaises(ApiException) as context:
             self.parse_api.images(request)
-        self.assertEqual("The specified file 'containers\\archive\\docx.zip' has type which is not currently supported.", context.exception.message)
+        self.assertEqual("The specified file 'containers/archive/docx.zip' has type which is not currently supported.", context.exception.message)
 
 
     def test_get_image_file_not_found_result(self):
@@ -118,7 +118,7 @@ class TestParserImageApi(TestContext):
         request = ImagesRequest(image_options)
         with self.assertRaises(ApiException) as context:
             self.parse_api.images(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder/file-not-exist.pdf'.", context.exception.message)
 
     def test_get_image_incorrect_password(self):
         image_options = ImagesOptions()
@@ -127,7 +127,7 @@ class TestParserImageApi(TestContext):
         request = ImagesRequest(image_options)
         with self.assertRaises(ApiException) as context:
             self.parse_api.images(request)
-        self.assertEqual("Password provided for file 'words\\docx\\password-protected.docx' is incorrect.", context.exception.message)
+        self.assertEqual("Password provided for file 'words/docx/password-protected.docx' is incorrect.", context.exception.message)
 
 
 if __name__ == '__main__':

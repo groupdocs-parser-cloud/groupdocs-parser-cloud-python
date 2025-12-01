@@ -37,7 +37,7 @@ class TestFile:
     def password_protected(cls):
         f = TestFile()
         f.file_name = "password-protected.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         f.password = "password"
         return f
 
@@ -45,77 +45,77 @@ class TestFile:
     def four_pages(cls):
         f = TestFile()
         f.file_name = "four-pages.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
     
     @classmethod
     def barcode(cls):
         f = TestFile()
         f.file_name = "barcodes.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
 
     @classmethod
     def one_page(cls):
         f = TestFile()
         f.file_name = "one-page.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
 
     @classmethod
     def template_document_docx(cls):
         f = TestFile()
         f.file_name = "template-document.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
 
     @classmethod
     def formatted_document(cls):
         f = TestFile()
         f.file_name = "formatted-document.docx"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
 
     @classmethod
     def encoding_detection(cls):
         f = TestFile()
         f.file_name = "encoding-detection.txt"
-        f.folder = "words\\txt\\"
+        f.folder = "words/txt/"
         return f
 
     @classmethod
     def zip(cls):
         f = TestFile()
         f.file_name = "docx.zip"
-        f.folder = "containers\\archive\\"
+        f.folder = "containers/archive/"
         return f
 
     @classmethod
     def zip_with_email_image_pdf(cls):
         f = TestFile()
         f.file_name = "zip-eml-jpg-pdf.zip"
-        f.folder = "containers\\archive\\"
+        f.folder = "containers/archive/"
         return f
 
     @classmethod
     def jpeg_file(cls):
         f = TestFile()
         f.file_name = "document.jpeg"
-        f.folder = "image\\jpeg\\"
+        f.folder = "image/jpeg/"
         return f
 
     @classmethod
     def image_and_attachment(cls):
         f = TestFile()
         f.file_name = "embedded-image-and-attachment.eml"
-        f.folder = "email\\eml\\"
+        f.folder = "email/eml/"
         return f
 
     @classmethod
     def pdf_container(cls):
         f = TestFile()
         f.file_name = "PDF with attachements.pdf"
-        f.folder = "pdf\\"
+        f.folder = "pdf/"
         f.password = "password"
         return f
 
@@ -123,42 +123,42 @@ class TestFile:
     def pdf(cls):
         f = TestFile()
         f.file_name = "template-document.pdf"
-        f.folder = "pdf\\"
+        f.folder = "pdf/"
         return f
 
     @classmethod
     def rar(cls):
         f = TestFile()
         f.file_name = "sample.rar"
-        f.folder = "containers\\archive\\"
+        f.folder = "containers/archive/"
         return f
 
     @classmethod
     def tar(cls):
         f = TestFile()
         f.file_name = "sample.tar"
-        f.folder = "containers\\archive\\"
+        f.folder = "containers/archive/"
         return f
 
     @classmethod
     def md(cls):
         f = TestFile()
         f.file_name = "sample.md"
-        f.folder = "words\\docx\\"
+        f.folder = "words/docx/"
         return f
 
     @classmethod
     def video(cls):
         f = TestFile()
         f.file_name = "sample.avi"
-        f.folder = "video\\avi\\"
+        f.folder = "video/avi/"
         return f
 
     @classmethod
     def not_exist(cls):
         f = TestFile()
         f.file_name = "file-not-exist.pdf"
-        f.folder = "folder\\"
+        f.folder = "folder/"
         return f
 
     @classmethod
@@ -166,6 +166,7 @@ class TestFile:
         return [
             cls.password_protected(),
             cls.four_pages(),
+            cls.barcode(),
             cls.one_page(),
             cls.template_document_docx(),
             cls.formatted_document(),
@@ -178,7 +179,8 @@ class TestFile:
             cls.pdf_container(),
             cls.rar(),
             cls.tar(),
-            cls.md()
+            cls.md(),
+            cls.video(),
         ]
 
     def ToFileInfo(self):

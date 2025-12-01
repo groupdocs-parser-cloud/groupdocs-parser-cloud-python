@@ -57,7 +57,7 @@ class TestParserContainerApi(TestContext):
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("Can't find file located at 'folder\\file-not-exist.pdf'.", context.exception.message)
+        self.assertEqual("Can't find file located at 'folder/file-not-exist.pdf'.", context.exception.message)
 
     def test_get_container_item_info_unsupported_file(self):
         container_options = ContainerOptions()
@@ -65,7 +65,7 @@ class TestParserContainerApi(TestContext):
         request = ContainerRequest(container_options)
         with self.assertRaises(ApiException) as context:
             self.info_api.container(request)
-        self.assertEqual("The specified file 'video\\avi\\sample.avi' has type which is not currently supported.", context.exception.message)
+        self.assertEqual("The specified file 'video/avi/sample.avi' has type which is not currently supported.", context.exception.message)
 
     def test_get_container_item_info_rar(self):
             """

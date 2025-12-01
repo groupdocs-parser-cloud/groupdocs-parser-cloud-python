@@ -64,7 +64,7 @@ class TestContext(unittest.TestCase):
         self._close_api_thread_pool()
 
     def get_test_file_path(self, file):
-        test_files = "test\\test_files"
+        test_files = "test/test_files"
         test_file_path = os.path.join(test_files, file.folder, file.file_name)
 
         return test_file_path
