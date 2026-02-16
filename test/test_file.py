@@ -162,6 +162,13 @@ class TestFile:
         return f
 
     @classmethod
+    def invoice(cls):
+        f = TestFile()
+        f.file_name = "Invoice.xlsx"
+        f.folder = "cells/"
+        return f
+    
+    @classmethod
     def get_test_files(cls):
         return [
             cls.password_protected(),
@@ -181,6 +188,7 @@ class TestFile:
             cls.tar(),
             cls.md(),
             cls.video(),
+            cls.invoice()
         ]
 
     def ToFileInfo(self):

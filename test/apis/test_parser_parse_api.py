@@ -91,6 +91,25 @@ class TestParserParseApi(TestContext):
         self.assertEqual(
             "Value does not fall within the expected range.", context.exception.message)
 
+    def test_ai_parse(self):
+        """
+        Test case for AIParse
+        Extract InvoiceNum, Date, Email using AIParseOptions.
+        """
+        test_file = TestFile.invoice()
+        options = AIParseOptions()
+        options.file_info = test_file.ToFileInfo()
+        options.template = {
+            "InvoiceNum": "",
+            "Date": "",
+            "Email": ""
+        }
+        request = AIParseRequest(options)
+        result = self.parse_api.a_i_parse(request)
+        self.assertIsNotNone(result)
+        invoice_num = result.get("InvoiceNum")
+        self.assertIsNotNone(invoice_num)
+
     def get_template(self):
         field1 = Field()
         field1.field_name = "Field1"

@@ -52,6 +52,7 @@ from groupdocs_parser_cloud.models.template_result import TemplateResult
 from groupdocs_parser_cloud.models.text_page import TextPage
 from groupdocs_parser_cloud.models.text_result import TextResult
 from groupdocs_parser_cloud.models.text_style import TextStyle
+from groupdocs_parser_cloud.models.ai_parse_options import AIParseOptions
 from groupdocs_parser_cloud.models.barcodes_options import BarcodesOptions
 from groupdocs_parser_cloud.models.container_options import ContainerOptions
 from groupdocs_parser_cloud.models.file_version import FileVersion

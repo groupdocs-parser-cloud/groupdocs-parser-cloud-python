@@ -16,7 +16,7 @@ from groupdocs_parser_cloud.apis.template_api import TemplateApi
 from groupdocs_parser_cloud.apis.file_api import CopyFileRequest, DeleteFileRequest, DownloadFileRequest, MoveFileRequest, UploadFileRequest
 from groupdocs_parser_cloud.apis.storage_api import GetDiscUsageRequest, GetFileVersionsRequest, ObjectExistsRequest, StorageExistsRequest
 from groupdocs_parser_cloud.apis.folder_api import CopyFolderRequest, CreateFolderRequest, DeleteFolderRequest, GetFilesListRequest, MoveFolderRequest
-from groupdocs_parser_cloud.apis.parse_api import ImagesRequest, TextRequest, ParseRequest, BarcodesRequest
+from groupdocs_parser_cloud.apis.parse_api import ImagesRequest, TextRequest, ParseRequest, BarcodesRequest, AIParseRequest
 from groupdocs_parser_cloud.apis.info_api import GetInfoRequest, ContainerRequest
 from groupdocs_parser_cloud.apis.template_api import CreateTemplateRequest, DeleteTemplateRequest, GetTemplateRequest
 
@@ -75,6 +75,7 @@ from groupdocs_parser_cloud.models.template_result import TemplateResult
 from groupdocs_parser_cloud.models.text_page import TextPage
 from groupdocs_parser_cloud.models.text_result import TextResult
 from groupdocs_parser_cloud.models.text_style import TextStyle
+from groupdocs_parser_cloud.models.ai_parse_options import AIParseOptions
 from groupdocs_parser_cloud.models.barcodes_options import BarcodesOptions
 from groupdocs_parser_cloud.models.container_options import ContainerOptions
 from groupdocs_parser_cloud.models.file_version import FileVersion
